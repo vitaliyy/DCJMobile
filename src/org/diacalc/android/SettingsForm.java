@@ -120,11 +120,11 @@ public class SettingsForm extends Activity{
         
         menuKoefVariant = (Spinner)findViewById(R.id.spinnerSettingsMenuKoef);
      
-    //    ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
-    //            this, R.array.menuSettingsKoefVariants,	android.R.layout.simple_spinner_item);
-    //    adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    //    menuKoefVariant.setAdapter(adapter2);
-    //    menuKoefVariant.setSelection(user.getRound());
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+               this, R.array.menuSettingsKoefVariants,	android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        menuKoefVariant.setAdapter(adapter2);
+        menuKoefVariant.setSelection(user.getRound());
         
         menuInfoVariant = (Spinner)findViewById(R.id.spinnerSettingsMenuInfo);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(

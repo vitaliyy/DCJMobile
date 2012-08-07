@@ -276,10 +276,21 @@ public class MenuForm extends Activity {
       user = dtPkt.getUser(mgr);
       
       NumberFormat f = NumberFormat.getInstance(Locale.US);
-      if (f instanceof DecimalFormat) {
+      switch (user.getRound())
+      {
+      case User.ROUND_005: 
+    	  if (f instanceof DecimalFormat) {
+  			df0 = (DecimalFormat)f;
+  			df0.applyPattern("0.00");
+        };
+		break;	
+		
+      default: if (f instanceof DecimalFormat) {
 			df0 = (DecimalFormat)f;
 			df0.applyPattern("0.0");
+    };
       }
+      
       f = NumberFormat.getInstance(Locale.US);
       if (f instanceof DecimalFormat) {
 			df = (DecimalFormat)f;
@@ -594,7 +605,7 @@ public class MenuForm extends Activity {
                                 break;
             case User.ROUND_05: step = 0.5f;
                                 break;
-            case User.ROUND_025: step = 0.1f;
+            case User.ROUND_01: step = 0.1f;
             					break;
             case User.ROUND_005: step = 0.05f;
 			break;	
@@ -665,6 +676,7 @@ public class MenuForm extends Activity {
     	case User.BE_INFO: 	  return df0.format(p.getAllCarb()/
     							user.getFactors().getBE(Factors.DIRECT));
     	case User.CALOR_INFO: return df.format(p.getCalories())+" "+getString(R.string.calor);
+    	
     	case User.DOSE_INFO:  return df0.format(
     							new Dose(
     								p,

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+	<LinearLayout android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		>	
+
+        <Button
+            android:id="@+id/btnProducts"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/prods_sel"
+            android:onClick="onProductsBtnClick"
+            android:text="@string/products" >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/menu_sel"
+            android:onClick="onMenuBtnClick"
+            android:text="@string/menu" >
+
+        </Button>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		>	
+
+    	<Button
+    	    android:id="@+id/btnDiary"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_weight="1"
+    	    android:drawableTop="@drawable/diary_sel"
+    	    android:text="@string/diary" >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnCoef"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/coefs_sel"
+            android:text="@string/coefsets" >
+
+        </Button>
+    </LinearLayout>
+	<LinearLayout android:orientation="horizontal"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:gravity="bottom">
+
+		<Button
+		    android:id="@+id/btnSettings"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableTop="@drawable/settings_sel"
+		    android:onClick="onSettingsBtnClick"
+		    android:text="@string/settings" >
+
+        </Button>
+    </LinearLayout>
+</LinearLayout>
+

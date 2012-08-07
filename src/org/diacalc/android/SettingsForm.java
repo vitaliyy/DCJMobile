@@ -170,7 +170,7 @@ public class SettingsForm extends Activity{
         menuKoefVariant.setOnItemSelectedListener(new OnItemSelectedListener(){
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				user.setMenuInfo(arg2);
+				user.setRound(arg2);
 			}
 			
 			public void onNothingSelected(AdapterView<?> arg0){}});

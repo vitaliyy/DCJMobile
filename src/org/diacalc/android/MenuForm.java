@@ -594,6 +594,11 @@ public class MenuForm extends Activity {
                                 break;
             case User.ROUND_05: step = 0.5f;
                                 break;
+            case User.ROUND_025: step = 0.25f;
+            					break;
+            case User.ROUND_005: step = 0.05f;
+			break;	
+			
                 /*case 2: step = 0.25;
                         break;
                 case 3: step = 1/6;//NovoPen 3

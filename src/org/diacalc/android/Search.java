@@ -32,6 +32,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class Search extends ListActivity {
 	private static final String DCJ_TAG = null;
+	public static boolean on_search = false;
 	private ProductProxyAdapter2 adapter;
 	private ArrayList<ProductInMenu> menuProds;
 	DatabaseManager mgr;
@@ -47,7 +48,12 @@ public class Search extends ListActivity {
 		}
     	
     };
-	
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode==2){
+            finish();
+        }
+    }	
 	@Override
 public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -98,8 +104,9 @@ public void onCreate(Bundle savedInstanceState) {
 public void onStarButtonClick(View v){
 	Intent intent = new Intent();
     intent.setClass(getBaseContext(), MenuForm.class);
-    startActivity(intent);
+    startActivityForResult(intent, 0);
     finish();
+    super.onDestroy();
 }
 @SuppressLint("UseValueOf")
 public class ProductProxyAdapter2 extends BaseAdapter{

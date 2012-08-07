@@ -9,29 +9,20 @@
     		android:layout_width="wrap_content" 
     		android:layout_height="wrap_content"
     	/>
-		<RadioGroup
-			android:id="@+id/groupSettingsRound"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-		>
-			<RadioButton
-				android:id="@+id/rbtnSettingsOne"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="left"
-				android:text="@string/rbtnSettingsOne"
-				android:layout_weight="1"
-			/>
-			<RadioButton
-				android:id="@+id/rbtnSettingsOnehalf"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="left"
-				android:text="@string/rbtnSettingsOnehalf"
-				android:layout_weight="1"
-			/>
-		</RadioGroup>
+
+		<TextView
+		    android:id="@+id/textSettingsMenuKoef"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/spinnerSettingsMenuKoef" />
+
+    	<Spinner
+    	    android:id="@+id/spinnerSettingsMenuKoef"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content"
+    	    android:drawSelectorOnTop="false"
+    	    android:prompt="@string/spinnerSettingsMenuKoef" />
+
 		<LinearLayout
      		android:layout_width="fill_parent"
     		android:layout_height="wrap_content"

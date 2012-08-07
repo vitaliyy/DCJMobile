@@ -2,6 +2,7 @@ package org.diacalc.android;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,6 +24,8 @@ import org.diacalc.android.maths.User;
 
 public class SettingsForm extends Activity{
 	private static final String DEFAULT_SERVER = "http://diacalc.org/dbwork/";
+
+	private static final String DCJ_TAG = null;
 	
 	private EditText editLogin;
 	private EditText editServer;
@@ -44,6 +47,7 @@ public class SettingsForm extends Activity{
 	private RadioButton rbOne;
 	private CheckBox calcCoefByTime;
 	private Spinner menuInfoVariant;
+	private Spinner menuKoefVariant;
 	
 	private User user;
 	private DatabaseManager mgr;
@@ -114,18 +118,26 @@ public class SettingsForm extends Activity{
         editServer.setText(user.getServer());
         editPass.setText(user.getPass());
         
+        menuKoefVariant = (Spinner)findViewById(R.id.spinnerSettingsMenuKoef);
+     
+    //    ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+    //            this, R.array.menuSettingsKoefVariants,	android.R.layout.simple_spinner_item);
+    //    adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    //    menuKoefVariant.setAdapter(adapter2);
+    //    menuKoefVariant.setSelection(user.getRound());
+        
         menuInfoVariant = (Spinner)findViewById(R.id.spinnerSettingsMenuInfo);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this, R.array.menuSettingsInfoVariants, 
-                	android.R.layout.simple_spinner_item);
+                this, R.array.menuSettingsInfoVariants, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         menuInfoVariant.setAdapter(adapter);
         menuInfoVariant.setSelection(user.getMenuInfo());
+     
         
-        rbOne = (RadioButton)findViewById(R.id.rbtnSettingsOne);
+       // rbOne = (RadioButton)findViewById(R.id.rbtnSettingsOne);
         calcCoefByTime = (CheckBox)findViewById(R.id.chBxSettingsCoefTime);
         
-        rbOne.setChecked(user.getRound()==User.ROUND_1);
+   //     rbOne.setChecked(user.getRound()==User.ROUND_1);
         calcCoefByTime.setChecked(user.isTimeSense());
         
         rbPlasma.setChecked(user.isPlasma());
@@ -135,17 +147,15 @@ public class SettingsForm extends Activity{
         
         fillSugars();
         
-        rbOne.setOnCheckedChangeListener(new OnCheckedChangeListener(){
-        	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
-        		//тут вначале нужно считать данные из полей ввода
-        		if (isChecked) user.setRound(User.ROUND_1);
-        		else user.setRound(User.ROUND_05);
-        	}
+        //rbOne.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+        //	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
+        //		if (isChecked) user.setRound(User.ROUND_1);
+        //		else user.setRound(User.ROUND_05);
+        //	}
         	
-        });
+       // });
         calcCoefByTime.setOnCheckedChangeListener(new OnCheckedChangeListener(){
         	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
-        		//тут вначале нужно считать данные из полей ввода
         		user.setTimeSense(isChecked);
         	}
         });
@@ -154,10 +164,19 @@ public class SettingsForm extends Activity{
 					int arg2, long arg3) {
 				user.setMenuInfo(arg2);
 			}
+			
 			public void onNothingSelected(AdapterView<?> arg0){}});
+        
+        menuKoefVariant.setOnItemSelectedListener(new OnItemSelectedListener(){
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				user.setMenuInfo(arg2);
+			}
+			
+			public void onNothingSelected(AdapterView<?> arg0){}});
+        
         rbWhole.setOnCheckedChangeListener(new OnCheckedChangeListener(){
         	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
-        		//тут вначале нужно считать данные из полей ввода
         		readSugarValues();
         		user.setPlasma(!isChecked);
         		fillSugars();
@@ -165,7 +184,6 @@ public class SettingsForm extends Activity{
         });
         rbMmol.setOnCheckedChangeListener(new OnCheckedChangeListener(){
         	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
-        		//тут вначале нужно считать данные из полей ввода
         		readSugarValues();
         		user.setMmol(isChecked);
         		fillSugars();
@@ -218,13 +236,12 @@ public class SettingsForm extends Activity{
             url += "/";
             editServer.setText(url);
         }
-		//Конец проверки
 		user.setLogin(editLogin.getText().toString());
 		user.setServer(url);
 		user.setPass(editPass.getText().toString());
 	}
 	@Override
-	public void onPause(){//Тут сохраняем данные
+	public void onPause(){
 		super.onPause();
 		switch(currentTab){
 		case 0:saveInetData();

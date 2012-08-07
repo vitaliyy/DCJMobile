@@ -46,7 +46,7 @@
     <string-array name="menuSettingsKoefVariants">
 		<item name="1">до 1 ед.</item>
 		<item name="2">до 0.5 ед.</item>
-		<item name="3">до 0.25 ед.</item>
+		<item name="3">до 0.1 ед.</item>
 		<item name="4">до 0.05 ед.</item>
 	</string-array>
 

@@ -594,7 +594,7 @@ public class MenuForm extends Activity {
                                 break;
             case User.ROUND_05: step = 0.5f;
                                 break;
-            case User.ROUND_025: step = 0.25f;
+            case User.ROUND_025: step = 0.1f;
             					break;
             case User.ROUND_005: step = 0.05f;
 			break;	

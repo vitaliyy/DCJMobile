@@ -1,10 +1,10 @@
 package org.diacalc.android.maths;
 
 public class User {
-    public final static int ROUND_1 = 1;
-    public final static int ROUND_05 = 2;
-    public final static int ROUND_025 = 3;
-    public final static int ROUND_005 = 4;
+    public final static int ROUND_1 = 0;
+    public final static int ROUND_05 = 1;
+    public final static int ROUND_025 = 2;
+    public final static int ROUND_005 = 3;
     public final static int PFC_INFO = 0;
     public final static int BE_INFO = 1;
     public final static int CALOR_INFO = 2;

@@ -140,5 +140,8 @@
 	<string name="search_hint">Поиск</string>
 	<string name="text">text</string>
 	<string name="spinnerSettingsMenuKoef">Выберите точность округления</string>
+	<string name="time">время</string>
+	<string name="puttime">Ввести время</string>
+	<string name="btnMenuCoefTimeOk">Ввести время</string>
 	
 </resources>

@@ -48,12 +48,19 @@ public class Search extends ListActivity {
 		}
     	
     };
+    
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==2){
-            finish();
-        }
-    }	
+    public void onBackPressed()
+    {
+      super.onDestroy();
+      
+    }
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	onSearchRequested();	
+    }
+    
 	@Override
 public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -106,7 +113,6 @@ public void onStarButtonClick(View v){
     intent.setClass(getBaseContext(), MenuForm.class);
     startActivityForResult(intent, 0);
     finish();
-    super.onDestroy();
 }
 @SuppressLint("UseValueOf")
 public class ProductProxyAdapter2 extends BaseAdapter{

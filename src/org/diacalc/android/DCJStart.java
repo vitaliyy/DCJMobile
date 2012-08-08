@@ -49,6 +49,11 @@ public class DCJStart extends Activity{
         intent.setClass(this, ProdForm.class);
         startActivity(intent);
     }
+    public void onCoefficientsBtnClick(View v){
+    	Intent intent = new Intent();
+        intent.setClass(this, CoeffMenu.class);
+        startActivity(intent);
+    }
     @Override
     public Dialog onCreateDialog(int id) {
     	switch(id){

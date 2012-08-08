@@ -78,15 +78,7 @@ public class MenuForm extends Activity {
     
     /* Работа с диалогами
      */
-    protected void onStop() {
-        setResult(2);
-        super.onStop();
-    }
-    @Override
-    protected void onDestroy() {
-        setResult(2);
-        super.onDestroy();
-    }  
+    
     @Override
     public Dialog onCreateDialog(int id) {
     	switch(id){

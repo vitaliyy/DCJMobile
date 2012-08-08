@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/coefs_sel"
+            android:onClick="onCoefficientsBtnClick"
             android:text="@string/coefsets" >
 
         </Button>

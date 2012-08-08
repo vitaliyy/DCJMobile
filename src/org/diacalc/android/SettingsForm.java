@@ -134,10 +134,8 @@ public class SettingsForm extends Activity{
         menuInfoVariant.setSelection(user.getMenuInfo());
      
         
-       // rbOne = (RadioButton)findViewById(R.id.rbtnSettingsOne);
         calcCoefByTime = (CheckBox)findViewById(R.id.chBxSettingsCoefTime);
         
-   //     rbOne.setChecked(user.getRound()==User.ROUND_1);
         calcCoefByTime.setChecked(user.isTimeSense());
         
         rbPlasma.setChecked(user.isPlasma());
@@ -146,14 +144,7 @@ public class SettingsForm extends Activity{
         rbMgdl.setChecked(!user.isMmol());
         
         fillSugars();
-        
-        //rbOne.setOnCheckedChangeListener(new OnCheckedChangeListener(){
-        //	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
-        //		if (isChecked) user.setRound(User.ROUND_1);
-        //		else user.setRound(User.ROUND_05);
-        //	}
-        	
-       // });
+       
         calcCoefByTime.setOnCheckedChangeListener(new OnCheckedChangeListener(){
         	public void onCheckedChanged(CompoundButton bt, boolean isChecked){
         		user.setTimeSense(isChecked);
